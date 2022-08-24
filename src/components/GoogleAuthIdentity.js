@@ -1,32 +1,66 @@
 import React from "react";
 import jwt_decode from "jwt-decode";
+import { connect } from "react-redux";
+import { signIn, signOut } from  '../actions'
+
+
 
 class GoogleAuthIdentity extends React.Component {
-    state = { isSignedIn: null , user: null}
-    
+    componentDidMount() {
+        const signedIn = localStorage.getItem('signedIn')
 
-    handleCallbackResponse = (response) => {
+        if(signedIn){
+            document.getElementById('signInDiv').hidden = true
+        }
+        
+        /*global google*/ 
+        window.gapi.load('client:auth2', () => {
+            google.accounts.id.initialize({
+                client_id: '700002742798-46vsvj4e6k4rbdqdn64uljoptb3ma9fp.apps.googleusercontent.com',
+                callback: this.handleSignIn
+            })
+            google.accounts.id.renderButton(
+                document.getElementById("signInDiv"),
+                { theme: "outline", size: "default" }
+            )
+
+            // this.auth = this.props;
+            // this.onAuthChange(this.auth.isSignedIn)
+            // console.log(this.auth)
+            
+    
+            
+        })
+
+    }
+
+    
+    onAuthChange = (isSignedIn, userObject) => { 
+        if(isSignedIn) {
+            this.props.signIn(userObject.sub);
+            
+        } else {
+            this.props.signOut();
+            
+        }
+    }
+
+    handleSignIn = (response) => {
         var userObject = jwt_decode(response.credential)
-        console.log(userObject)
-        this.setState({ isSignedIn: true, user: userObject })
+        console.log(userObject.sub)
+        const isSignedIn = true;
+        this.onAuthChange(isSignedIn, userObject)
+
+        localStorage.setItem('signedIn', 'true')
+
         document.getElementById('signInDiv').hidden = true
     }
 
-    componentDidMount() {
-        /*global google*/ 
-        google.accounts.id.initialize({
-            client_id: '700002742798-46vsvj4e6k4rbdqdn64uljoptb3ma9fp.apps.googleusercontent.com',
-            callback: this.handleCallbackResponse
-        })
-        google.accounts.id.renderButton(
-            document.getElementById("signInDiv"),
-            { theme: "outline", size: "default" }
-        )
+    handleSignOut= () => {
 
-    }
-
-    handleSignOut() {
-        this.setState({ isSignedIn: null, user: null })
+        const isSignedIn = false;
+        localStorage.clear()
+        this.onAuthChange(isSignedIn)
         document.getElementById('signInDiv').hidden = false
     }
 
@@ -39,11 +73,15 @@ class GoogleAuthIdentity extends React.Component {
     //     this.auth.signOut()
     // }
     renderAuthButton() {
-        if(this.state.isSignedIn === null) {
+        const signedIn = localStorage.getItem('signedIn')
+        console.log(signedIn)
+        if (signedIn == null) {
             return null
-        }else if (this.state.isSignedIn) {
+            
+        }else if (signedIn) {
+            
             return (
-                <button id="signOutButton" onClick={ (e) => this.handleSignOut(e)} className="ui red google button" >
+                <button id="signOutButton" onClick={ (e) => this.handleSignOut(e)} className="ui blue google button" >
                 <i className="google icon"/>
                 Sign Out
                 </button>
@@ -67,5 +105,10 @@ class GoogleAuthIdentity extends React.Component {
             ) 
     }
 }
-export default GoogleAuthIdentity;
+
+
+const mapStateToProps = (state) => { 
+    return {isSignedIn: state.auth.isSignedIn}
+}
+export default connect(mapStateToProps, {signIn, signOut}) (GoogleAuthIdentity);
 
