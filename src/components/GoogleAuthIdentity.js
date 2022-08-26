@@ -47,34 +47,26 @@ class GoogleAuthIdentity extends React.Component {
 
     handleSignIn = (response) => {
         var userObject = jwt_decode(response.credential)
-        console.log(userObject.sub)
         const isSignedIn = true;
+
         this.onAuthChange(isSignedIn, userObject)
 
         localStorage.setItem('signedIn', 'true')
+        
 
         document.getElementById('signInDiv').hidden = true
     }
 
     handleSignOut= () => {
-
         const isSignedIn = false;
+
         localStorage.clear()
         this.onAuthChange(isSignedIn)
         document.getElementById('signInDiv').hidden = false
     }
 
-
-
-    // onSignInClick = () =>{
-    //     this.auth.signIn()
-    // }
-    // onSignOutClick = () =>{
-    //     this.auth.signOut()
-    // }
     renderAuthButton() {
         const signedIn = localStorage.getItem('signedIn')
-        console.log(signedIn)
         if (signedIn == null) {
             return null
             
