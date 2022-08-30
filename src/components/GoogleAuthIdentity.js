@@ -48,11 +48,12 @@ class GoogleAuthIdentity extends React.Component {
     handleSignIn = (response) => {
         var userObject = jwt_decode(response.credential)
         const isSignedIn = true;
+        const userId = userObject.sub
 
         this.onAuthChange(isSignedIn, userObject)
 
         localStorage.setItem('signedIn', 'true')
-        
+        localStorage.setItem('userId', userId )
 
         document.getElementById('signInDiv').hidden = true
     }
@@ -100,7 +101,7 @@ class GoogleAuthIdentity extends React.Component {
 
 
 const mapStateToProps = (state) => { 
-    return {isSignedIn: state.auth.isSignedIn}
+    return {isSignedIn: state.auth.isSignedIn,}
 }
 export default connect(mapStateToProps, {signIn, signOut}) (GoogleAuthIdentity);
 

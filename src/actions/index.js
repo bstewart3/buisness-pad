@@ -1,4 +1,5 @@
-import firebase from '../apis/firebase'
+import firebase from '../apis/firebase';
+import history from '../history';
 import {
     SIGN_IN,
     SIGN_OUT,
@@ -26,9 +27,13 @@ export const signOut = () => {
 
 
 export const createBuisness = formValues => async (dispatch) => {
-        const response = await firebase.post('/buisnesses.json', formValues);
+        const userId = localStorage.getItem('userId');
+        const id = JSON.stringify(Date.now())
+        const response = await firebase.put(`/buisnesses/${id}.json`, { ...formValues, userId } );
         
         dispatch({ type: CREATE_BUISNESS, payload: JSON.parse(response.config.data)})
+
+        history.push('/')
     }
 
 
@@ -46,10 +51,11 @@ export const fetchBuisnesses = () => async dispatch => {
 };
 
 
-export const editBuissness = (id, formValues) => async dispatch =>  {
-    const response = await firebase.put(`/buisnesses/${id}`, formValues);
+export const editBuisness = (id, formValues) => async dispatch =>  {
+    const response = await firebase.patch(`/buisnesses/${id}.json`, formValues);
 
     dispatch({ type: EDIT_BUISNESS, payload: response.data})
+    history.push('/')
 };
 
 

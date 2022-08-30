@@ -10,8 +10,10 @@ DELETE_BUISNESS
  const buisnessReducer = (state = {}, action) => {
     switch (action.type) {
         case FETCH_BUISNESSES:
+            
             return {...state, ..._.mapKeys(action.payload, 'id' )}
         case FETCH_BUISNESS:
+            console.log(action.payload)
             return { ...state, [action.payload.id]: action.payload };
         case CREATE_BUISNESS:
             return {...state, [action.payload.id]: action.payload };
