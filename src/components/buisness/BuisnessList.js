@@ -7,6 +7,8 @@ import { Link }  from 'react-router-dom'
 class BuisnessList extends React.Component {
     componentDidMount() {
         this.props.fetchBuisnesses()
+
+        console.log(this.props.buisnesses)
     }
 
 componentDidUpdate(){
@@ -79,7 +81,7 @@ componentDidUpdate(){
 
 
 const mapState = (state) => {
-    console.log(Object.values(state.buisnesses))
+    
     return {
             buisnesses: Object.values(state.buisnesses),
         }
