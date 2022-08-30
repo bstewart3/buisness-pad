@@ -59,10 +59,11 @@ export const editBuisness = (id, formValues) => async dispatch =>  {
 };
 
 
-export const deleteBuisnes = (id) => async dispatch => {
-    await firebase.delete(`buisnesses/${id}`)
+export const deleteBuisness = (id) => async dispatch => {
+    await firebase.delete(`buisnesses/${id}.json`)
 
     dispatch({ type: DELETE_BUISNESS, payload: id})
+    history.push('/')
 };
 
 

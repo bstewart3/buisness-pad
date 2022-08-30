@@ -19,7 +19,7 @@ const App = () => {
         <Route path='/' exact component={BuisnessList} />
         <Route path='/buisness/new' exact component={BuisnessCreate}></Route>
         <Route path='/buisness/edit/:id' exact component={BuisnessEdit} />
-        <Route path='/buisness/delete' exact component={BuisnessDelete} />
+        <Route path='/buisness/delete/:id' exact component={BuisnessDelete} />
         <Route path='/buisness/show' exact component={BuisnessShow} />
         <Route path='/auth2' exact component={GoogleAuthIdentity} />
       </div>

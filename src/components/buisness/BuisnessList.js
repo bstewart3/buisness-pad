@@ -7,13 +7,8 @@ import { Link }  from 'react-router-dom'
 class BuisnessList extends React.Component {
     componentDidMount() {
         this.props.fetchBuisnesses()
-
-        console.log(this.props.buisnesses)
     }
 
-componentDidUpdate(){
-    console.log('i updated')
-}
     renderAdmin(buisness) {
         const currentUserId = localStorage.getItem('userId')
         if (buisness.userId === currentUserId) {
@@ -22,9 +17,9 @@ componentDidUpdate(){
                     <Link className="ui button primary" to={`/buisness/edit/${buisness.id}`}>
                         Edit
                     </Link>
-                    <button className="ui button negative">
+                    <Link to={`/buisness/delete/${buisness.id}`} className="ui button negative">
                         Delete
-                    </button>
+                    </Link>
                 </div>
             )
         }
@@ -40,10 +35,10 @@ componentDidUpdate(){
                     <i className="large middle aligned icon building"></i>
                     <div className="content">
                         <h3>
-                            {buisness.formValues.title}
+                            {buisness.title}
                         </h3> 
                         <div className="description">
-                            {buisness.formValues.description}
+                            {buisness.description}
                         </div>
                         
                     </div>
