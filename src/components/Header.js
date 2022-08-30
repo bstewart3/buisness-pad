@@ -4,10 +4,11 @@ import GoogleAuthIdentity from "./GoogleAuthIdentity";
 
 
 const Header = () => {
+
     return (
         <div className="ui secondary pointing menu">
                 <Link to="/" className="item">
-                    BuisnessPad
+                <h3>🌁BuisnessPad</h3>
                 </Link>
             <div className="right menu">
 

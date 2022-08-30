@@ -4,17 +4,13 @@ import { createBuisness } from '../../actions';
 import BuisnessForm from './BuisnessForm';
 
 class BuisnessCreate extends React.Component {
-
-
     onSubmit = (formValues) => {
         const formValuesWithId = {
             id: Date.now(),
             ...formValues
         }
         this.props.createBuisness(formValuesWithId)
-        
     }
-
 
     render() {
         return(
@@ -25,12 +21,5 @@ class BuisnessCreate extends React.Component {
         ) 
     }
 }
-
-
-
-
-
-
-
 
 export default connect(null, { createBuisness })(BuisnessCreate);

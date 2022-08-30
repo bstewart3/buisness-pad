@@ -35,22 +35,49 @@ import { Form, Field } from "react-final-form";
             const errors = {};
     
             if (!formValues.title) {
-            errors.title = "You must enter a title";
+            errors.title = "Enter a name for your Buisness.";
             }
     
             if (!formValues.description) {
-            errors.description = "You must enter a description";
+            errors.description = "Enter a description for you idea.";
             }
-    
+            if (!formValues.valueProp) {
+                errors.valueProp = "Enter a unique Value Proposition for your buisness.";
+            }
+            if (!formValues.customers) {
+                errors.customers = "Enter your potential customers.";
+            }
+            if (!formValues.mvp) {
+                errors.mvp = "Enter a description of your MVP(Minimum Viable Product)";
+            }
             return errors;
         }}
         render={({ handleSubmit }) => (
             <form onSubmit={handleSubmit} className="ui form error">
-            <Field name="title" component={renderInput} label="Enter Title" />
+            <Field
+                name="title"
+                component={renderInput} 
+                label="Enter Your Buisness Name or Idea." 
+            />
             <Field
                 name="description"
                 component={renderInput}
-                label="Enter Description"
+                label="What does this Buisness do?"
+            />
+            <Field
+                name="valueProp"
+                component={renderInput}
+                label="Whats a unique value proposition for this buisness?"
+            />
+            <Field
+                name="customers"
+                component={renderInput}
+                label="Who are the customers of this buisness?"
+            />
+            <Field
+                name="mvp"
+                component={renderInput}
+                label="Whats needed to create an MVP for this idea?"
             />
             <button className="ui button primary">Submit</button>
             </form>

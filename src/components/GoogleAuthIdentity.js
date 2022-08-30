@@ -12,7 +12,6 @@ class GoogleAuthIdentity extends React.Component {
         if(signedIn){
             document.getElementById('signInDiv').hidden = true
         }
-        
         /*global google*/ 
         window.gapi.load('client:auth2', () => {
             google.accounts.id.initialize({
@@ -23,18 +22,10 @@ class GoogleAuthIdentity extends React.Component {
                 document.getElementById("signInDiv"),
                 { theme: "outline", size: "default" }
             )
-
-            // this.auth = this.props;
-            // this.onAuthChange(this.auth.isSignedIn)
-            // console.log(this.auth)
-            
-    
-            
         })
 
     }
 
-    
     onAuthChange = (isSignedIn, userObject) => { 
         if(isSignedIn) {
             this.props.signIn(userObject.sub);
@@ -98,7 +89,6 @@ class GoogleAuthIdentity extends React.Component {
             ) 
     }
 }
-
 
 const mapStateToProps = (state) => { 
     return {isSignedIn: state.auth.isSignedIn,}

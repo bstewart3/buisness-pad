@@ -35,7 +35,7 @@ class BuisnessList extends React.Component {
                     <i className="large middle aligned icon building"></i>
                     <div className="content">
                         <h3>
-                            {buisness.title}
+                            <Link to={`/buisness/show/${buisness.id}`}>{buisness.title}</Link>
                         </h3> 
                         <div className="description">
                             {buisness.description}
