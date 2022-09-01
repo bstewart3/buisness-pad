@@ -1,25 +1,53 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import GoogleAuthIdentity from "./GoogleAuthIdentity";
+import { connect } from "react-redux";
 
 
-const Header = () => {
-
-    return (
-        <div className="ui secondary pointing menu">
+class Header extends React.Component {
+    renderNavLinks() {
+        const signedIn = localStorage.getItem('signedIn')
+        if(!signedIn) {
+            return (
+                <div className="right menu">
                 <Link to="/" className="item">
-                <h3>🌁BuisnessPad</h3>
+                    <h3>Home </h3>
                 </Link>
-            <div className="right menu">
-
-                <Link to="/" className="item">
-                    Home 
-                </Link>
-                <Link to="/buisness/new" className="item">New</Link>
                 <GoogleAuthIdentity />
             </div>
-        </div>
-    )
+            )
+        } else {
+            return (
+                <div className="right menu">
+                <Link to="/" className="item">
+                    <h3>Home </h3>
+                </Link>
+                <Link to="/buisness/new" className="item">
+                    <h3>New</h3>
+                </Link>
+                <GoogleAuthIdentity />
+            </div>
+            )
+        }
+    }
+
+
+    render(){
+        return (
+            <div id='header' className="ui secondary pointing menu">
+                    <Link to="/" id='logo' className="item large">
+                    <h3 style={{fontSize: 24}}>🌁BuisnessPad</h3>
+                    </Link>
+                {this.renderNavLinks()}
+            </div>
+        )  
+    }
+
+}
+const mapState = (state) => {
+    return {
+            auth: state.auth,
+        }
 }
 
-export default Header;
+export default connect(mapState, {   })(Header);

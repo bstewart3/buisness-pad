@@ -65,7 +65,7 @@ class GoogleAuthIdentity extends React.Component {
         }else if (signedIn) {
             
             return (
-                <button id="signOutButton" onClick={ (e) => this.handleSignOut(e)} className="ui blue google button" >
+                <button id="signOutButton" onClick={ (e) => this.handleSignOut(e)} className="ui blue google button" style={{ marginTop: 15}} >
                 <i className="google icon"/>
                 Sign Out
                 </button>
@@ -73,7 +73,7 @@ class GoogleAuthIdentity extends React.Component {
         } else {
             return (
             <div>
-                <div id="signInDiv"></div>
+                <div id="signInDiv" ></div>
             </div>        
             )
         }
@@ -82,7 +82,7 @@ class GoogleAuthIdentity extends React.Component {
     render () {
             return (
             <div>
-                <div id="signInDiv"></div>
+                <div id="signInDiv" style={{ marginTop: 10}}></div>
                 <div>{ this.renderAuthButton() }</div>
             </div>
                 

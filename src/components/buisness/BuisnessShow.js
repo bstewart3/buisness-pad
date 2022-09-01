@@ -15,31 +15,33 @@ class BuisnessShow extends React.Component {
             <div>Loading...</div>
         } else {
             return (
-            <div className="ui celled list">
-                
-                <h2>{buisness.title}</h2>
+            <div className="card">
+                <div className="ui celled list">
+                            
+                        <h2>{buisness.title}</h2>
+                        
+                        <div className="item">
+                            <h3>Buisness Description:</h3>
+                            <h4>{buisness.description}</h4>
+                        </div>
+                        
+                        <div className="item">
+                            <h3>Unique Value Proposition:</h3>
+                            <h4>{buisness.valueProp}</h4> 
+                        </div>
+                        
+                        <div className="item">
+                            <h3>Ideal Customers:</h3>
+                            <h4>{buisness.customers}</h4>
+                        </div>
+                        
+                        <div className="item">
+                            <h3>MVP ideas:</h3>
+                            <h4>{buisness.mvp}</h4>
+                        </div>
+                </div>
+            </div>    
             
-            <div className="item">
-                <h3>Buisness Description:</h3>
-                <h4>{buisness.description}</h4>
-            </div>
-            
-            <div className="item">
-                <h3>Unique Value Proposition:</h3>
-                <h4>{buisness.valueProp}</h4> 
-            </div>
-            
-            <div className="item">
-                <h3>Ideal Customers:</h3>
-                <h4>{buisness.customers}</h4>
-            </div>
-            
-            <div className="item">
-                <h3>MVP ideas:</h3>
-                <h4>{buisness.mvp}</h4>
-            </div>
-
-        </div>
             )
         }
         

@@ -14,7 +14,7 @@ class BuisnessCreate extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="card">
                 <h3>Add a buisness idea</h3>
                 <BuisnessForm onSubmit={this.onSubmit}/>
             </div>

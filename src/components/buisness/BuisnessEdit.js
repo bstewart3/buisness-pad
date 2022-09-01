@@ -22,7 +22,7 @@ class BuisnessEdit extends React.Component{
             return <div>Loading...</div>
         }
         return (
-            <div>
+            <div className="card">
                 <h3>Edit your Buisness Idea</h3>
                 <BuisnessForm
                 

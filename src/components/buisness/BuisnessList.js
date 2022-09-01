@@ -27,24 +27,41 @@ class BuisnessList extends React.Component {
 
 
     renderList() {
-
-        return this.props.buisnesses.map(buisness => {
+        const userId = localStorage.getItem('userId');
+        
+        if (userId === null) {
             return (
-                <div className="item" key={buisness.id}>
-                    {this.renderAdmin(buisness)}
-                    <i className="large middle aligned icon building"></i>
-                    <div className="content">
-                        <h3>
-                            <Link to={`/buisness/show/${buisness.id}`}>{buisness.title}</Link>
-                        </h3> 
-                        <div className="description">
-                            {buisness.description}
-                        </div>
-                        
-                    </div>
+                <div>
+                    <h3>Login to view your buisness ideas. </h3>
                 </div>
             )
-        })
+        } else {
+            return this.props.buisnesses.map(buisness => {
+                if(userId === buisness.userId){
+                    return (
+                        <div className="item" key={buisness.id}>
+                            {this.renderAdmin(buisness)}
+                            <i className="large middle aligned icon building"></i>
+                            <div className="content">
+                                <h3>
+                                    <Link to={`/buisness/show/${buisness.id}`}>{buisness.title}</Link>
+                                </h3> 
+                                <div className="description">
+                                    {buisness.description}
+                                </div>
+                                
+                            </div>
+                        </div>
+                    )
+                } else {
+                    return null
+                }
+            })
+        }
+
+ 
+        
+
     }
 
 
@@ -58,18 +75,20 @@ class BuisnessList extends React.Component {
                         Add A Buisness Idea
                     </Link>
                 </div>
-
             )
         }
     }
 
     render() {
         return (
-            <div>
-                <h2>Buisness Ideas:</h2>
-                <div className="ui celled list">{this.renderList()}</div>
-                {this.renderCreate()}
+            <div className="card">
+                <div className="ui container">
+                    <h2>Buisness Ideas:</h2>
+                    <div className="ui celled list">{this.renderList()}</div>
+                    {this.renderCreate()}
+                </div>
             </div>
+
         )
     }
 }

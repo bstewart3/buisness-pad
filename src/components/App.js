@@ -7,6 +7,7 @@ import BuisnessShow from './buisness/BuisnessShow'
 import BuisnessEdit from './buisness/BuisnessEdit'
 import BuisnessDelete from './buisness/BuisnessDelete'
 import GoogleAuthIdentity from "./GoogleAuthIdentity";
+import LandingPage from "./LandingPage";
 import history from "../history";
 import '../App.css'
 
@@ -25,6 +26,7 @@ const App = () => {
             <Route path='/buisness/delete/:id' exact component={BuisnessDelete} />
             <Route path='/buisness/show/:id' exact component={BuisnessShow} />
             <Route path='/auth2' exact component={GoogleAuthIdentity} />
+            <Route path='/home' exact component={LandingPage} />
         </Switch>   
       </div>
     </Router>
