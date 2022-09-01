@@ -35,7 +35,7 @@ class Header extends React.Component {
     render(){
         return (
             <div id='header' className="ui secondary pointing menu">
-                    <Link to="/" id='logo' className="item large">
+                    <Link to="/home" id='logo' className="item large">
                     <h3 style={{fontSize: 24}}>🌁BuisnessPad</h3>
                     </Link>
                 {this.renderNavLinks()}

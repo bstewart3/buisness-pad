@@ -14,7 +14,7 @@ import '../App.css'
 
 const App = () => {
   return (
-  <div id='app' className="ui container">
+  <div id='app'>
     <Router history={history}>
       <div>
         
