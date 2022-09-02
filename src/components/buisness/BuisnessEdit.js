@@ -3,6 +3,7 @@ import React from "react";
 import { connect } from  'react-redux';
 import { fetchBuisness, editBuisness } from '../../actions';
 import BuisnessForm from './BuisnessForm';
+import { Link } from "react-router-dom";
 
 class BuisnessEdit extends React.Component{
     
@@ -17,17 +18,15 @@ class BuisnessEdit extends React.Component{
     }
 
     render() {
-        console.log(this.props.buisness)
         if(!this.props.buisness){
             return <div>Loading...</div>
         }
         return (
             <div className="card">
+                <Link to="/"><i className="large middle aligned icon arrow circle left"></i></Link>
                 <h3>Edit your Buisness Idea</h3>
                 <BuisnessForm
-                
                 onSubmit={this.onSubmit}
-                
                 />
             </div>
         )

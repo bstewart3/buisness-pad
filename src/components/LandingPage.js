@@ -1,5 +1,6 @@
 import React from "react";
-import heroImage from '../assets/BuisnessPad.svg'
+import heroImage from '../assets/BuisnessPad.svg';
+import { Link } from "react-router-dom";
 
 class LandingPage extends React.Component {
     render() {
@@ -9,16 +10,15 @@ class LandingPage extends React.Component {
                         <div className="container1">
                             <div className="left">
                                 <div className="landing-txt">
-                                    <h1 id="landingH1">Let your insights thrive.</h1>
-                                    <h2 id="landingH2" >Share your knowledge with tomorrow.</h2>
+                                    <h1 id="landingH1">Save That Killer Buisness Idea For Later.</h1>
+                                    <h2 id="landingH2">We Make It Easy To Keep Tabs On Your Buisness Ideas.</h2>
                                     </div>
-                                    <p id="landingP">
-                                        The Wisdom Project was created to help document and share valuable knowledge from users around the world.
-                                        Anonymously share your wisdoms and add to our growing encyclopedia of user insights.
+                                    <p id="landingP" >
+                                        Its not always easy to remember the next big thing.
+                                        BuisnessPad makes taking notes on a new buisness idea simple.
                                     </p>
                                     <div className="landing-buttons">
-                                        <button className="ui button secondary ">Try It</button>
-                                        <button  className="ui button secondary">View A Sample</button>
+                                        <Link to='/' className="ui button secondary">Try It</Link>
                                     </div>
                                 </div>
                             <div className="right">

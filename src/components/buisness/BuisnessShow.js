@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchBuisness } from '../../actions' ;
+import { Link } from "react-router-dom";
 
 
 class BuisnessShow extends React.Component {
@@ -17,7 +18,7 @@ class BuisnessShow extends React.Component {
             return (
             <div className="card">
                 <div className="ui celled list">
-                            
+                        <Link to="/"><i className="large middle aligned icon arrow circle left"></i></Link>    
                         <h2>{buisness.title}</h2>
                         
                         <div className="item">

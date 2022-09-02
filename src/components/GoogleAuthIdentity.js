@@ -13,7 +13,7 @@ class GoogleAuthIdentity extends React.Component {
             document.getElementById('signInDiv').hidden = true
         }
         /*global google*/ 
-        window.gapi.load('client:auth2', () => {
+        
             google.accounts.id.initialize({
                 client_id: '700002742798-46vsvj4e6k4rbdqdn64uljoptb3ma9fp.apps.googleusercontent.com',
                 callback: this.handleSignIn
@@ -22,7 +22,7 @@ class GoogleAuthIdentity extends React.Component {
                 document.getElementById("signInDiv"),
                 { theme: "outline", size: "default" }
             )
-        })
+        
 
     }
 
@@ -65,7 +65,7 @@ class GoogleAuthIdentity extends React.Component {
         }else if (signedIn) {
             
             return (
-                <button id="signOutButton" onClick={ (e) => this.handleSignOut(e)} className="ui blue google button" style={{ marginTop: 15}} >
+                <button id="signOutButton" onClick={ (e) => this.handleSignOut(e)} className="ui blue google button" style={{ marginTop: 15, marginRight: 10}} >
                 <i className="google icon"/>
                 Sign Out
                 </button>
@@ -82,7 +82,7 @@ class GoogleAuthIdentity extends React.Component {
     render () {
             return (
             <div>
-                <div id="signInDiv" style={{ marginTop: 10}}></div>
+                <div id="signInDiv" style={{ marginTop: 10, marginRight: 10}}></div>
                 <div>{ this.renderAuthButton() }</div>
             </div>
                 
