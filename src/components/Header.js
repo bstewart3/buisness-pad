@@ -18,7 +18,7 @@ class Header extends React.Component {
             )
         } else {
             return (
-                <div className="right menu">
+                <div id="rightMenu" className="right menu">
                 <Link to="/" className="item">
                     <h3>Home </h3>
                 </Link>
@@ -36,7 +36,7 @@ class Header extends React.Component {
         return (
             <div id='header' className="ui secondary pointing menu">
                     <Link to="/home" id='logo' className="item large">
-                    <h3 style={{fontSize: 24}}>🌁BuisnessPad</h3>
+                        <h3 style={{fontSize: 24}}> &#128221;BuisnessPad</h3>
                     </Link>
                 {this.renderNavLinks()}
             </div>

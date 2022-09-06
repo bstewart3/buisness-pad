@@ -6,24 +6,23 @@ import { signIn, signOut } from  '../actions'
 
 
 class GoogleAuthIdentity extends React.Component {
+
     componentDidMount() {
         const signedIn = localStorage.getItem('signedIn')
+        const google = window.google;
+
+        google.accounts.id.initialize({
+            client_id: '700002742798-46vsvj4e6k4rbdqdn64uljoptb3ma9fp.apps.googleusercontent.com',
+            callback: this.handleSignIn
+        })
+        google.accounts.id.renderButton(
+            document.getElementById("signInDiv"),
+            { theme: "outline", size: "default" }
+        )
 
         if(signedIn){
             document.getElementById('signInDiv').hidden = true
         }
-        /*global google*/ 
-        
-            google.accounts.id.initialize({
-                client_id: '700002742798-46vsvj4e6k4rbdqdn64uljoptb3ma9fp.apps.googleusercontent.com',
-                callback: this.handleSignIn
-            })
-            google.accounts.id.renderButton(
-                document.getElementById("signInDiv"),
-                { theme: "outline", size: "default" }
-            )
-        
-
     }
 
     onAuthChange = (isSignedIn, userObject) => { 
