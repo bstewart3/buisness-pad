@@ -22,7 +22,7 @@ class Header extends React.Component {
                 <Link to="/" className="item">
                     <h3>Home </h3>
                 </Link>
-                <Link to="/buisness/new" className="item">
+                <Link to="/business/new" className="item">
                     <h3>New</h3>
                 </Link>
                 <GoogleAuthIdentity />
@@ -36,7 +36,7 @@ class Header extends React.Component {
         return (
             <div id='header' className="ui secondary pointing menu">
                     <Link to="/home" id='logo' className="item large">
-                        <h3 style={{fontSize: 24}}> &#128221;BuisnessPad</h3>
+                        <h3 style={{fontSize: 24}}> &#128221;businessPad</h3>
                     </Link>
                 {this.renderNavLinks()}
             </div>

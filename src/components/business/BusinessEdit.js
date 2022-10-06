@@ -1,31 +1,31 @@
 // import _ from 'lodash';
 import React from "react";
 import { connect } from  'react-redux';
-import { fetchBuisness, editBuisness } from '../../actions';
-import BuisnessForm from './BuisnessForm';
+import { fetchbusiness, editbusiness } from '../../actions';
+import businessForm from './businessForm';
 import { Link } from "react-router-dom";
 
-class BuisnessEdit extends React.Component{
+class businessEdit extends React.Component{
     
     componentDidMount() {
-        this.props.fetchBuisness(JSON.parse(this.props.match.params.id));
+        this.props.fetchbusiness(JSON.parse(this.props.match.params.id));
     }
 
     onSubmit = (formValues) => {
 
-        this.props.editBuisness(this.props.match.params.id, formValues)
+        this.props.editbusiness(this.props.match.params.id, formValues)
         
     }
 
     render() {
-        if(!this.props.buisness){
+        if(!this.props.business){
             return <div>Loading...</div>
         }
         return (
             <div className="card">
                 <Link to="/"><i className="large middle aligned icon arrow circle left"></i></Link>
-                <h3>Edit your Buisness Idea</h3>
-                <BuisnessForm
+                <h3>Edit your business Idea</h3>
+                <businessForm
                 onSubmit={this.onSubmit}
                 />
             </div>
@@ -34,7 +34,7 @@ class BuisnessEdit extends React.Component{
     }
 }
 const mapState = (state, ownProps) => {
-    return { buisness: state.buisnesses[ownProps.match.params.id]}
+    return { business: state.businesses[ownProps.match.params.id]}
 }
 
-export default connect(mapState, {fetchBuisness, editBuisness })(BuisnessEdit);
+export default connect(mapState, {fetchbusiness, editbusiness })(businessEdit);

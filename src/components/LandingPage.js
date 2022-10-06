@@ -1,5 +1,5 @@
 import React from "react";
-import heroImage from '../assets/BuisnessPad.svg';
+import heroImage from '../assets/businessPad.svg';
 import { Link } from "react-router-dom";
 
 class LandingPage extends React.Component {
@@ -10,12 +10,12 @@ class LandingPage extends React.Component {
                         <div className="container1">
                             <div className="left">
                                 <div className="landing-txt">
-                                    <h1 id="landingH1">Save That Killer Buisness Idea For Later.</h1>
-                                    <h2 id="landingH2">We Make It Easy To Keep Tabs On Your Buisness Ideas.</h2>
+                                    <h1 id="landingH1">Save That Killer business Idea For Later.</h1>
+                                    <h2 id="landingH2">We Make It Easy To Keep Tabs On Your business Ideas.</h2>
                                     </div>
                                     <p id="landingP" >
                                         Its not always easy to remember the next big thing.
-                                        BuisnessPad makes taking notes on a new buisness idea simple.
+                                        businessPad makes taking notes on a new business idea simple.
                                     </p>
                                     <div className="landing-buttons">
                                         <Link to='/' className="ui button secondary">Try It</Link>

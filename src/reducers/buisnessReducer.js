@@ -1,24 +1,24 @@
 import _ from 'lodash';
 import {
-FETCH_BUISNESS,
-FETCH_BUISNESSES,
-CREATE_BUISNESS,
-EDIT_BUISNESS,
-DELETE_BUISNESS
+FETCH_business,
+FETCH_businessES,
+CREATE_business,
+EDIT_business,
+DELETE_business
 } from '../actions/types';
 
- const buisnessReducer = (state = {}, action) => {
+ const businessReducer = (state = {}, action) => {
     switch (action.type) {
-        case FETCH_BUISNESSES:
+        case FETCH_businessES:
             
             return {...state, ..._.mapKeys(action.payload, 'id' )}
-        case FETCH_BUISNESS:
+        case FETCH_business:
             return { ...state, [action.payload.id]: action.payload };
-        case CREATE_BUISNESS:
+        case CREATE_business:
             return {...state, [action.payload.id]: action.payload };
-        case EDIT_BUISNESS:
+        case EDIT_business:
             return {...state, [action.payload.id]: action.payload};
-        case DELETE_BUISNESS:
+        case DELETE_business:
             return _.omit(state, action.payload)    
 
         default:
@@ -26,4 +26,4 @@ DELETE_BUISNESS
     }
 }
 
-export default buisnessReducer
+export default businessReducer

@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 import authReducer from "./authReducer";
-import buisnessReducer from "./buisnessReducer";
+import businessReducer from "./businessReducer";
 
 
 export default combineReducers({
     auth: authReducer, 
-    buisnesses: buisnessReducer
+    businesses: businessReducer
 });

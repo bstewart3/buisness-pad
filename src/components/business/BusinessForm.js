@@ -35,14 +35,14 @@ import { Form, Field } from "react-final-form";
             const errors = {};
     
             if (!formValues.title) {
-            errors.title = "Enter a name for your Buisness.";
+            errors.title = "Enter a name for your business.";
             }
     
             if (!formValues.description) {
             errors.description = "Enter a description for you idea.";
             }
             if (!formValues.valueProp) {
-                errors.valueProp = "Enter a unique Value Proposition for your buisness.";
+                errors.valueProp = "Enter a unique Value Proposition for your business.";
             }
             if (!formValues.customers) {
                 errors.customers = "Enter your potential customers.";
@@ -57,22 +57,22 @@ import { Form, Field } from "react-final-form";
             <Field
                 name="title"
                 component={renderInput} 
-                label="Enter Your Buisness Name or Idea." 
+                label="Enter Your business Name or Idea." 
             />
             <Field
                 name="description"
                 component={renderInput}
-                label="What does this Buisness do?"
+                label="What does this business do?"
             />
             <Field
                 name="valueProp"
                 component={renderInput}
-                label="Whats a unique value proposition for this buisness?"
+                label="Whats a unique value proposition for this business?"
             />
             <Field
                 name="customers"
                 component={renderInput}
-                label="Who are the customers of this buisness?"
+                label="Who are the customers of this business?"
             />
             <Field
                 name="mvp"

@@ -1,23 +1,23 @@
 
 import React from "react";
 import { connect } from "react-redux";
-import { fetchBuisnesses } from "../../actions";
+import { fetchbusinesses } from "../../actions";
 import { Link }  from 'react-router-dom'
 
-class BuisnessList extends React.Component {
+class businessList extends React.Component {
     componentDidMount() {
-        this.props.fetchBuisnesses()
+        this.props.fetchbusinesses()
     }
 
-    renderAdmin(buisness) {
+    renderAdmin(business) {
         const currentUserId = localStorage.getItem('userId')
-        if (buisness.userId === currentUserId) {
+        if (business.userId === currentUserId) {
             return (
                 <div className="right floated content">
-                    <Link className="ui button primary" to={`/buisness/edit/${buisness.id}`}>
+                    <Link className="ui button primary" to={`/business/edit/${business.id}`}>
                         Edit
                     </Link>
-                    <Link to={`/buisness/delete/${buisness.id}`} className="ui button negative">
+                    <Link to={`/business/delete/${business.id}`} className="ui button negative">
                         Delete
                     </Link>
                 </div>
@@ -32,22 +32,22 @@ class BuisnessList extends React.Component {
         if (userId === null) {
             return (
                 <div>
-                    <h3>Login to view your buisness ideas. </h3>
+                    <h3>Login to view your business ideas. </h3>
                 </div>
             )
         } else {
-            return this.props.buisnesses.map(buisness => {
-                if(userId === buisness.userId){
+            return this.props.businesses.map(business => {
+                if(userId === business.userId){
                     return (
-                        <div className="item" key={buisness.id}>
-                            {this.renderAdmin(buisness)}
+                        <div className="item" key={business.id}>
+                            {this.renderAdmin(business)}
                             <i className="large middle aligned icon building"></i>
                             <div className="content">
                                 <h3>
-                                    <Link to={`/buisness/show/${buisness.id}`}>{buisness.title}</Link>
+                                    <Link to={`/business/show/${business.id}`}>{business.title}</Link>
                                 </h3> 
                                 <div className="description">
-                                    {buisness.description}
+                                    {business.description}
                                 </div>
                                 
                             </div>
@@ -71,8 +71,8 @@ class BuisnessList extends React.Component {
         if(isSignedIn) {
             return (
                 <div style={{ textAlign: 'right' }}>
-                    <Link to="/buisness/new" className="ui button primary">
-                        Add A Buisness Idea
+                    <Link to="/business/new" className="ui button primary">
+                        Add A business Idea
                     </Link>
                 </div>
             )
@@ -83,7 +83,7 @@ class BuisnessList extends React.Component {
         return (
             <div className="card">
                 <div className="ui container">
-                    <h2>Buisness Ideas:</h2>
+                    <h2>business Ideas:</h2>
                     <div className="ui celled list">{this.renderList()}</div>
                     {this.renderCreate()}
                 </div>
@@ -97,8 +97,8 @@ class BuisnessList extends React.Component {
 const mapState = (state) => {
     
     return {
-            buisnesses: Object.values(state.buisnesses),
+            businesses: Object.values(state.businesses),
         }
 }
 
-export default connect(mapState, { fetchBuisnesses })(BuisnessList);
+export default connect(mapState, { fetchbusinesses })(businessList);

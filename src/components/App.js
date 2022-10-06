@@ -1,11 +1,11 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import Header from "./Header";
-import BuisnessList from './buisness/BuisnessList'
-import BuisnessCreate from './buisness/BuisnessCreate'
-import BuisnessShow from './buisness/BuisnessShow'
-import BuisnessEdit from './buisness/BuisnessEdit'
-import BuisnessDelete from './buisness/BuisnessDelete'
+import businessList from './business/businessList'
+import businessCreate from './business/businessCreate'
+import businessShow from './business/businessShow'
+import businessEdit from './business/businessEdit'
+import businessDelete from './business/businessDelete'
 import GoogleAuthIdentity from "./GoogleAuthIdentity";
 import LandingPage from "./LandingPage";
 import history from "../history";
@@ -20,11 +20,11 @@ const App = () => {
         
           <Header />
           <Switch>
-            <Route path='/' exact component={BuisnessList} />
-            <Route path='/buisness/new' exact component={BuisnessCreate}></Route>
-            <Route path='/buisness/edit/:id' exact component={BuisnessEdit} />
-            <Route path='/buisness/delete/:id' exact component={BuisnessDelete} />
-            <Route path='/buisness/show/:id' exact component={BuisnessShow} />
+            <Route path='/' exact component={businessList} />
+            <Route path='/business/new' exact component={businessCreate}></Route>
+            <Route path='/business/edit/:id' exact component={businessEdit} />
+            <Route path='/business/delete/:id' exact component={businessDelete} />
+            <Route path='/business/show/:id' exact component={businessShow} />
             <Route path='/auth2' exact component={GoogleAuthIdentity} />
             <Route path='/home' exact component={LandingPage} />
         </Switch>   
