@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Field } from "react-final-form";
 
-    const StreamForm = (props) => {
+    const businessForm = (props) => {
     const renderError = ({ error, touched }) => {
         if (touched && error) {
         return (
@@ -86,4 +86,4 @@ import { Form, Field } from "react-final-form";
     );
     };
     
-export default StreamForm;
+export default businessForm;

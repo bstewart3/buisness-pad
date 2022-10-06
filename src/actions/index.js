@@ -3,11 +3,11 @@ import history from '../history';
 import {
     SIGN_IN,
     SIGN_OUT,
-    CREATE_business,
-    FETCH_business,
-    FETCH_businessES,
-    EDIT_business, 
-    DELETE_business
+    CREATE_BUSINESS,
+    FETCH_BUSINESS,
+    FETCH_BUSINESSES,
+    EDIT_BUSINESS, 
+    DELETE_BUSINESS
     } from "./types";
 
 export const signIn = (userId) => {
@@ -26,43 +26,43 @@ export const signOut = () => {
 };
 
 
-export const createbusiness = formValues => async (dispatch) => {
+export const createBusiness = formValues => async (dispatch) => {
         const userId = localStorage.getItem('userId');
         const id = JSON.stringify(Date.now())
         const response = await firebase.put(`/businesses/${id}.json`, { ...formValues, userId } );
         
-        dispatch({ type: CREATE_business, payload: JSON.parse(response.config.data)})
+        dispatch({ type: CREATE_BUSINESS, payload: JSON.parse(response.config.data)})
 
         history.push('/')
     }
 
 
-export const fetchbusiness = (id) => async dispatch => {
+export const fetchBusiness = (id) => async dispatch => {
         const response = await firebase.get(`/businesses/${id}.json`)
 
-        dispatch ({ type: FETCH_business, payload: response.data})
+        dispatch ({ type: FETCH_BUSINESS, payload: response.data})
     };
 
 
-export const fetchbusinesses = () => async dispatch => {
+export const fetchBusinesses = () => async dispatch => {
     const response = await firebase.get('/businesses.json');
 
-    dispatch({ type: FETCH_businessES, payload: response.data})
+    dispatch({ type: FETCH_BUSINESSES, payload: response.data})
 };
 
 
-export const editbusiness = (id, formValues) => async dispatch =>  {
+export const editBusiness = (id, formValues) => async dispatch =>  {
     const response = await firebase.patch(`/businesses/${id}.json`, formValues);
 
-    dispatch({ type: EDIT_business, payload: response.data})
+    dispatch({ type: EDIT_BUSINESS, payload: response.data})
     history.push('/')
 };
 
 
-export const deletebusiness = (id) => async dispatch => {
+export const deleteBusiness = (id) => async dispatch => {
     await firebase.delete(`businesses/${id}.json`)
 
-    dispatch({ type: DELETE_business, payload: id})
+    dispatch({ type: DELETE_BUSINESS, payload: id})
     history.push('/')
 };
 

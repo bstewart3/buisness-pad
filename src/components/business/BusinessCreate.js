@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createbusiness } from '../../actions';
-import businessForm from './businessForm';
+import { createBusiness } from '../../actions';
+import BusinessForm from './BusinessForm';
 
 class businessCreate extends React.Component {
     onSubmit = (formValues) => {
@@ -9,17 +9,17 @@ class businessCreate extends React.Component {
             id: Date.now(),
             ...formValues
         }
-        this.props.createbusiness(formValuesWithId)
+        this.props.createBusiness(formValuesWithId)
     }
 
     render() {
         return(
             <div className="card">
                 <h3>Add a business idea</h3>
-                <businessForm onSubmit={this.onSubmit}/>
+                <BusinessForm onSubmit={this.onSubmit}/>
             </div>
         ) 
     }
 }
 
-export default connect(null, { createbusiness })(businessCreate);
+export default connect(null, { createBusiness })(businessCreate);

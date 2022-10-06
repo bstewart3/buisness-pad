@@ -1,12 +1,12 @@
 
 import React from "react";
 import { connect } from "react-redux";
-import { fetchbusinesses } from "../../actions";
+import { fetchBusinesses } from "../../actions";
 import { Link }  from 'react-router-dom'
 
 class businessList extends React.Component {
     componentDidMount() {
-        this.props.fetchbusinesses()
+        this.props.fetchBusinesses()
     }
 
     renderAdmin(business) {
@@ -101,4 +101,4 @@ const mapState = (state) => {
         }
 }
 
-export default connect(mapState, { fetchbusinesses })(businessList);
+export default connect(mapState, { fetchBusinesses })(businessList);

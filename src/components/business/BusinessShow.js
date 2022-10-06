@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchbusiness } from '../../actions' ;
+import { fetchBusiness } from '../../actions' ;
 import { Link } from "react-router-dom";
 
 
 class businessShow extends React.Component {
     componentDidMount= () => {
-        this.props.fetchbusiness(this.props.match.params.id);
+        this.props.fetchBusiness(this.props.match.params.id);
 
     }
 
@@ -56,4 +56,4 @@ const mapState = (state,ownProps) =>  {
     return { business: state.businesses[ownProps.match.params.id] }
 }
 
-export default connect(mapState, { fetchbusiness })(businessShow);
+export default connect(mapState, { fetchBusiness })(businessShow);

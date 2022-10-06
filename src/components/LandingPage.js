@@ -1,5 +1,5 @@
 import React from "react";
-import heroImage from '../assets/businessPad.svg';
+import heroImage from '../assets/BusinessPad.svg';
 import { Link } from "react-router-dom";
 
 class LandingPage extends React.Component {

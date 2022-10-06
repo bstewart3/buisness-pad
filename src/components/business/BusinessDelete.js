@@ -3,14 +3,14 @@ import Modal from "../Modal";
 import history from '../../history';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchbusiness, deletebusiness } from "../../actions";
+import { fetchBusiness, deleteBusiness } from "../../actions";
 
 
 
 
 class businessDelete extends React.Component {
     componentDidMount() {
-        this.props.fetchbusiness(this.props.match.params.id)
+        this.props.fetchBusiness(this.props.match.params.id)
     }
 
 
@@ -18,7 +18,7 @@ class businessDelete extends React.Component {
         const id = this.props.match.params.id
         return (
             <>
-                <button onClick={() => this.props.deletebusiness(id)} className="ui button negative">Delete</button>
+                <button onClick={() => this.props.deleteBusiness(id)} className="ui button negative">Delete</button>
                 <Link to='/' className="ui button">Cancel</Link>
             </>
         );
@@ -53,4 +53,4 @@ const mapState = (state, ownProps) => {
 
 
 
-export default connect(mapState, { fetchbusiness, deletebusiness } )(businessDelete);
+export default connect(mapState, { fetchBusiness, deleteBusiness } )(businessDelete);

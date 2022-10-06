@@ -1,11 +1,11 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import Header from "./Header";
-import businessList from './business/businessList'
-import businessCreate from './business/businessCreate'
-import businessShow from './business/businessShow'
-import businessEdit from './business/businessEdit'
-import businessDelete from './business/businessDelete'
+import businessList from './business/BusinessList'
+import businessCreate from './business/BusinessCreate'
+import businessShow from './business/BusinessShow'
+import businessEdit from './business/BusinessEdit'
+import businessDelete from './business/BusinessDelete'
 import GoogleAuthIdentity from "./GoogleAuthIdentity";
 import LandingPage from "./LandingPage";
 import history from "../history";
